@@ -1,6 +1,175 @@
+:root {
+    --color-accent: oklch(45% 0.25 300); /* Modern dark purple */
+}
+
 body {
-    /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
-       */
     font: 100%/1.5 system-ui;
-  }
+    max-width: 100ch;
+    padding: 2rem;
+    margin: 0 auto;
+    accent-color: var(--color-accent);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid oklch(80% 3% 200);
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a:hover {
+    border-bottom: 0.4em solid oklch(70% 3% 200); /* Light grey */
+    padding-bottom: 0.1em;
+}
+
+nav a.current {
+    border-bottom: 0.4em solid oklch(50% 3% 200); /* Darker grey */
+    padding-bottom: 0.1em;
+}
+
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+}
+
+label {
+    grid-column: 1;
+    align-self: center; /* Align label vertically */
+}
+
+input,
+textarea {
+    font: inherit;
+    width: 100%;
+    box-sizing: border-box;
+    grid-column: 2; /* Place inputs in the second column */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 5em;
+}
+
+button {
+    grid-column: 1 / -1; /* Span the full width */
+    width: auto;
+}
+
+/* General heading styles */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    text-wrap: balance;
+}
+
+/* Specific h1 size */
+h1 {
+    font-size: 400%;
+    margin-block: 1rem;
+}
+
+/* Project-specific styles */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
+}
+
+.project {
+    background-color: #f0f0f0;
+    padding: 1em;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.projects article {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    gap: 1em;
+    padding: 1em;
+}
+
+.projects h2 {
+    margin: 0;
+}
+
+.projects img {
+    width: 100%;
+    height: auto;
+}
+
+.projects p {
+    margin: 0;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1em;
+    margin: 2em 0;
+}
+
+.contact-info a {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-info a::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.contact-info a[href^="https://ryanbatubara.dev"]::before {
+    content: "\f015"; /* home icon */
+}
+
+.contact-info a[href^="mailto"]::before {
+    content: "\f0e0"; /* envelope icon */
+}
+
+.contact-info a[href*="linkedin"]::before {
+    content: "\f08c";
+    font-family: "Font Awesome 5 Brands";
+}
+
+.contact-info a[href*="github"]::before {
+    content: "\f09b";
+    font-family: "Font Awesome 5 Brands";
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Always 2 columns */
+    gap: 2em;
+    margin: 2em 0;
+}
+
+.skills-grid h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.3em;
+}
+
+.skills-grid p {
+    margin: 0;
+    line-height: 1.6;
+    word-wrap: break-word;  /* Ensures text wraps properly */
+}
+
+/* Make it single column on very small screens */
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
