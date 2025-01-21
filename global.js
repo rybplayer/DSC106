@@ -77,3 +77,22 @@ if ("colorScheme" in localStorage) {
 select.addEventListener('input', function(event) {
   setColorScheme(event.target.value);
 });
+
+// Handle contact form submission
+const form = document.querySelector('form[action^="mailto:"]');
+form?.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const data = new FormData(this);
+    let url = this.action + "?";
+    
+    for (let [name, value] of data) {
+        url += `${name}=${encodeURIComponent(value)}&`;
+    }
+    
+    // Remove trailing &
+    url = url.slice(0, -1);
+    
+    // Open email client with properly encoded URL
+    location.href = url;
+});

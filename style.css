@@ -273,8 +273,6 @@ body > h1,  /* Target direct h1 child of body */
     position: fixed;
     top: 1em;
     right: 1em;
-    background: canvas;
+    background: transparent;
     padding: 0.5em;
-    border-radius: 0.3em;
-    box-shadow: 0 0 10px color-mix(in srgb, currentColor 20%, transparent);
 }
