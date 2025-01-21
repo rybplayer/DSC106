@@ -1,5 +1,11 @@
+/* Root styles for light/dark mode support */
 :root {
     --color-accent: oklch(45% 0.25 300); /* Modern dark purple */
+    color-scheme: light dark;
+    
+    /* Use system colors that automatically adapt */
+    background-color: canvas;
+    color: canvastext;
 }
 
 body {
@@ -15,22 +21,21 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid oklch(80% 3% 200);
+    border-bottom: 1px solid currentColor;
 }
 
 nav a {
     text-decoration: none;
     color: inherit;
+    padding: .5em 1em;
 }
 
 nav a:hover {
-    border-bottom: 0.4em solid oklch(70% 3% 200); /* Light grey */
-    padding-bottom: 0.1em;
+    background: color-mix(in srgb, currentColor 10%, transparent);
 }
 
 nav a.current {
-    border-bottom: 0.4em solid oklch(50% 3% 200); /* Darker grey */
-    padding-bottom: 0.1em;
+    background: color-mix(in srgb, currentColor 20%, transparent);
 }
 
 form {
@@ -75,38 +80,35 @@ h1 {
 }
 
 /* Project-specific styles */
+
+body > h1,  /* Target direct h1 child of body */
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(calc(100ch / 3.5), 1fr));  /* Dynamic columns */
+    gap: 2em;
+    margin: 2em 0;
+    width: 100%;
+    max-width: 100ch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.project {
-    background-color: #f0f0f0;
-    padding: 1em;
-    border: 1px solid #ccc;
-    text-align: center;
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Always 3 columns at max width */
+    gap: 2em;
+    margin: 2em 0;
+    width: 100%;
+    max-width: 100ch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .projects article {
     display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
+    grid-template-rows: auto 1fr auto;
     gap: 1em;
     padding: 1em;
-}
-
-.projects h2 {
-    margin: 0;
-}
-
-.projects img {
-    width: 100%;
-    height: auto;
-}
-
-.projects p {
-    margin: 0;
 }
 
 .contact-info {
@@ -149,7 +151,7 @@ h1 {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* Always 2 columns */
+    grid-template-columns: repeat(3 , 1fr);  /* Always 2 columns */
     gap: 2em;
     margin: 2em 0;
 }
@@ -176,10 +178,12 @@ h1 {
 
 .home-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;  /* Two columns */
     gap: 2em;
     align-items: center;
-    min-height: calc(100vh - 100px);
+    max-width: 100ch;  /* Set max width to 100ch */
+    margin: 0 auto;  /* Center the grid */
+    padding: 2em;  /* Add padding for spacing */
 }
 
 .image-column {
@@ -239,4 +243,38 @@ h1 {
     .animated-text {
         font-size: 3rem;
     }
+
+    .projects {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 900px) {  /* Adjusted breakpoint */
+    .projects {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 600px) {
+    .projects {
+        grid-template-columns: 1fr;  /* Single column on mobile */
+    }
+}
+
+/* Table of Contents styles */
+.toc {
+    background: color-mix(in srgb, currentColor 5%, transparent);
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+/* Theme switcher styles */
+.color-scheme {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    background: canvas;
+    padding: 0.5em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 10px color-mix(in srgb, currentColor 20%, transparent);
 }

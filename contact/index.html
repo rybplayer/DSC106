@@ -3,30 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Contact - Ryan Batubara</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <nav>
-        <a href="/DSC106/index.html">Home</a>
-        <a href="/DSC106/projects">Projects</a>
-        <a href="" class="current">Contact</a>
-        <a href="/DSC106/resume">Resume</a>
-        <a href="https://github.com/rybplayer" target="_blank">GitHub</a>
-    </nav>
-
-    <h1>
-        Contact
-    </h1>
-
-    <form action="mailto:rbatubara@ucsd.edu" method="post" enctype="text/plain">
-        <label>Email:</label>
-        <input type="email" id="email" name="email">
-        <label>Subject:</label>
-        <input type="text" id="subject" name="subject">
-        <label>Body:</label>
-        <textarea id="message" name="body"></textarea>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <h1>Contact</h1>
+        <form>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+            
+            <label for="body">Body:</label>
+            <textarea id="body" name="body" required></textarea>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script src="/global.js" type="module"></script>
 </body>
 </html>
