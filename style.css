@@ -276,3 +276,31 @@ body > h1,  /* Target direct h1 child of body */
     background: transparent;
     padding: 0.5em;
 }
+
+#profile-stats dl {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+#profile-stats dt {
+    grid-row: 1;
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+#profile-stats dd {
+    grid-row: 2;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Optional: Add some responsive styling */
+@media (max-width: 600px) {
+    #profile-stats dl {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
