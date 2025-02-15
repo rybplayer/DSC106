@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Meta</h1>
+        Some meta information about the website's code.
+        <h2>Summary</h2>
+        <div id="meta-stats"></div>
+        <h2>Commits by time of day</h2>
+        <div id="chart"></div>  
+        <p id="selection-count">No commits selected</p>
+        <h2>Language breakdown</h2>
+        <dl id="language-breakdown" class="stats">
+            <!-- Will be populated by JavaScript -->
+        </dl>
+    </div>
+
+    <dl id="commit-tooltip" class="info tooltip">
+        <dt>Commit</dt>
+        <dd><a href="" id="commit-link" target="_blank"></a></dd>
+        
+        <dt>Date</dt>
+        <dd id="commit-date"></dd>
+        
+        <dt>Time</dt>
+        <dd id="commit-time"></dd>
+        
+        <dt>Author</dt>
+        <dd id="commit-author"></dd>
+    </dl>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="main.js" type="module"></script>
+    <script src="../global.js" type="module"></script>
+</body>
+</html>
+
