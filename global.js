@@ -32,10 +32,12 @@ for (let p of pages) {
   a.href = url;
   a.textContent = p.title;
   
-  // Check if this is the current page
+  // Check if this is the current page - Modified comparison
   a.classList.toggle(
     'current',
-    a.host === location.host && a.pathname === location.pathname
+    a.host === location.host && 
+    // Normalize paths by removing trailing slashes for comparison
+    a.pathname.replace(/\/$/, '') === location.pathname.replace(/\/$/, '')
   );
   
   // Add target="_blank" for external links
