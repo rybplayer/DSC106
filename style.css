@@ -298,6 +298,27 @@ body > h1,  /* Target direct h1 child of body */
     font-weight: bold;
 }
 
+#meta-stats dl {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+#meta-stats dt {
+    grid-row: 1;
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+#meta-stats dd {
+    grid-row: 2;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
 /* Optional: Add some responsive styling */
 @media (max-width: 600px) {
     #profile-stats dl {
@@ -363,4 +384,122 @@ svg:has(path:hover) {
 
 path {
     transition: 300ms;
+}
+
+.gridlines line {
+    stroke: currentColor;
+    stroke-opacity: 0.1;
+    stroke-width: 0.5px;
+}
+
+.gridlines path {
+    stroke: none;
+}
+
+dl.info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5em;
+    margin: 0;
+}
+
+dl.info dt {
+    color: #666;
+    font-size: 0.9em;
+}
+
+dl.info dd {
+    margin: 0;
+    font-weight: bold;
+}
+
+.tooltip {
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    background: color-mix(in srgb, canvas 95%, transparent);
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 
+        0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+}
+
+.tooltip:hover {
+    opacity: 1;
+}
+
+/* Style for links within tooltip */
+.tooltip a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.tooltip a:hover {
+    text-decoration: underline;
+}
+
+/* Remove or comment out these styles */
+/*
+circle {
+    transition: 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+  
+circle:hover {
+    transform: scale(1.5);
+}
+*/
+
+dl.info {
+    /* ... other styles ... */
+    transition-duration: 500ms;
+    transition-property: opacity, visibility;
+}
+  
+dl.info[hidden]:not(:hover, :focus-within) {
+    opacity: 0;
+    visibility: hidden;
+}
+  
+@keyframes marching-ants {
+    to {
+      stroke-dashoffset: -8; /* 5 + 3 */
+    }
+  }
+  
+  .selection {
+    fill-opacity: 0.1;
+    stroke: black;
+    stroke-opacity: 0.7;
+    stroke-dasharray: 5 3;
+    animation: marching-ants 2s linear infinite;
+  }
+
+#language-breakdown {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+#language-breakdown dt {
+    grid-row: 1;
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+#language-breakdown dd {
+    grid-row: 2;
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
 }
