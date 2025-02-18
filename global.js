@@ -129,10 +129,15 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     for (let project of projects) {
         const article = document.createElement('article');
         article.innerHTML = `
-            <${headingLevel}>${project.title}</${headingLevel}>
+            <${headingLevel}>
+                <a href="${project.url}" class="project-title">
+                    ${project.title}
+                </a>
+            </${headingLevel}>
             <img src="${project.image || 'https://vis-society.github.io/labs/2/images/empty.svg'}" alt="${project.title}">
             <p>${project.description}</p>
             <p>Made in ${project.year}</p>
+            <a href="${project.url}" class="project-link">View Project →</a>
         `;
         containerElement.appendChild(article);
     }
