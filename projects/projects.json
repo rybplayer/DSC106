@@ -1,9 +1,9 @@
 [
 	{
-		"title": "Lorem ipsum dolor sit.",
-        "year": "2023",
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+		"title": "Bikewatching",
+        "year": "2025",
+		"image": "assets/bikewatching.png",
+		"description": "Visualizing the bike system in Boston, MA."
 	},
 	{
 		"title": "Architecto minima sed omnis?",
