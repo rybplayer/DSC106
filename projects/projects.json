@@ -2,7 +2,7 @@
 	{
 		"title": "Bikewatching",
         "year": "2025",
-		"image": "assets/bikewatching.png",
+		"image": "/projects/assets/bikewatching.png",
 		"description": "Visualizing the bike system in Boston, MA.",
 		"url": "https://rybplayer.github.io/bikewatching/"
 	},

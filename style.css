@@ -116,8 +116,9 @@ body > h1,  /* Target direct h1 child of body */
     height: 200px;  /* Fixed height for consistency */
     object-fit: cover;  /* Maintains aspect ratio while covering area */
     object-position: center;  /* Centers the image */
-    max-width: 400px;  /* Maximum width of images */
+    max-width: 300px;  /* Maximum width of images */
     margin: 0 auto;  /* Centers the image if smaller than container */
+    display: block;  /* Ensures proper margin behavior */
 }
 
 .contact-info {
@@ -553,4 +554,37 @@ dl.info[hidden]:not(:hover, :focus-within) {
 
 .project-link:hover {
     background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+/* Shared styles for both project grids */
+.projects-grid article img,
+.projects article img {
+    width: 100%;
+    height: 200px;  /* Fixed height for consistency */
+    object-fit: cover;  /* Maintains aspect ratio while covering area */
+    object-position: center;  /* Centers the image */
+    max-width: 300px;  /* Maximum width of images */
+    margin: 0 auto;  /* Centers the image if smaller than container */
+    display: block;  /* Ensures proper margin behavior */
+}
+
+/* Ensure both grids have similar article styling */
+.projects-grid article,
+.projects article {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto;
+    gap: 1em;
+    padding: 1em;
+}
+
+/* Maintain grid layout for both */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    margin: 2em 0;
+    width: 100%;
+    max-width: 100ch;
+    margin-left: auto;
+    margin-right: auto;
 }
